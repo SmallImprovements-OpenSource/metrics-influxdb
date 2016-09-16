@@ -76,4 +76,16 @@ public class Miscellaneous {
 			throw new IllegalArgumentException(message);
 		}
 	}
+
+
+	public static String join(String[] aArr, String sSep) {
+		StringBuilder sbStr = new StringBuilder();
+		for (int i = 0, il = aArr.length; i < il; i++) {
+			if (i > 0) {
+				sbStr.append(sSep);
+			}
+			sbStr.append(aArr[i]);
+		}
+		return sbStr.toString();
+	}
 }

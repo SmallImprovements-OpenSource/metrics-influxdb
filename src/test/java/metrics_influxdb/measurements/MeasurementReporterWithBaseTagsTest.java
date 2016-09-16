@@ -10,12 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import com.codahale.metrics.*;
+import metrics_influxdb.SortedMaps;
 import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import com.codahale.metrics.Clock;
-import com.codahale.metrics.Counter;
-import com.codahale.metrics.MetricRegistry;
 
 import metrics_influxdb.api.measurements.MetricMeasurementTransformer;
 
@@ -37,7 +35,7 @@ public class MeasurementReporterWithBaseTagsTest {
 		String counterName = "c";
 		Counter c = registry.counter(counterName);
 		c.inc();
-		reporter.report(empty(), singleton(counterName, c), empty(), empty(), empty());
+		reporter.report(SortedMaps.<String, Gauge>empty(), singleton(counterName, c), SortedMaps.<String, Histogram>empty(), SortedMaps.<String, Meter>empty(), SortedMaps.<String, Timer>empty());
 		assertThat(sender.getFrames().size(), is(1));
 		assertThat(sender.getFrames().get(0), startsWith(counterName));
 		assertThat(sender.getFrames().get(0), containsString("count=1i"));

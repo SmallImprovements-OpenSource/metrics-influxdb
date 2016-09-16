@@ -22,11 +22,12 @@ public class TestCategoriesMetricMeasurementTransformer {
 
 		List<String> metricsName = Arrays.asList("metric", "a.metric", "a.metric.that.should.define.different.name.spaces");
 
-		metricsName.forEach(n -> {
-			assertThat(noCategories.measurementName(n), is(n));
-			assertThat(noCategories.tags(n), notNullValue());
-			assertThat(noCategories.tags(n).entrySet(), empty());
-		});
+		for (String metric : metricsName) {
+			assertThat(noCategories.measurementName(metric), is(metric));
+			assertThat(noCategories.tags(metric), notNullValue());
+			assertThat(noCategories.tags(metric).entrySet(), empty());
+		}
+		;
 	}
 
 	@Test

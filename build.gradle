@@ -27,8 +27,8 @@ dependencies {
 	testCompile 'org.slf4j:slf4j-simple:1.7.7'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 test {
 	// enable TestNG support (default is JUnit)
