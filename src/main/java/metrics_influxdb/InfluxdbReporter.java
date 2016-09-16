@@ -66,7 +66,8 @@ public class InfluxdbReporter  {
 		private TimeUnit durationUnit;
 		private MetricFilter filter;
 		private boolean skipIdleMetrics;
-		private ScheduledExecutorService executor;
+
+        private ScheduledExecutorService executor;
 
 		@VisibilityIncreasedForTests InfluxDBCompatibilityVersions influxdbVersion;
 		@VisibilityIncreasedForTests InfluxdbProtocol protocol;

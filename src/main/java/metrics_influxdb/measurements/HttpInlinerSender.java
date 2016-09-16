@@ -30,11 +30,11 @@ public class HttpInlinerSender extends QueueableSender {
 
 		try {
 			if (protocol.secured) {
-				toJoin = new URL("http", protocol.host, protocol.port, "/write?precision=ms&db=" + Miscellaneous.urlEncode(protocol.database) + "&u="
-						+ Miscellaneous.urlEncode(protocol.user) + "&p=" + Miscellaneous.urlEncode(protocol.password));
+                toJoin = new URL(protocol.protocol, protocol.host, protocol.port, "/write?precision=ms&db=" + Miscellaneous.urlEncode(protocol.database) + "&u="
+                    + Miscellaneous.urlEncode(protocol.user) + "&p=" + Miscellaneous.urlEncode(protocol.password));
 			} else {
-				toJoin = new URL("http", protocol.host, protocol.port, "/write?precision=ms&db=" + Miscellaneous.urlEncode(protocol.database));
-			}
+                toJoin = new URL(protocol.protocol, protocol.host, protocol.port, "/write?precision=ms&db=" + Miscellaneous.urlEncode(protocol.database));
+            }
 		} catch (MalformedURLException | UnsupportedEncodingException e) {
 			toJoin = null;
 		}

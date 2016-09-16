@@ -81,7 +81,7 @@ public class SendToLocalInfluxDB_V09 {
 				.convertRatesTo(TimeUnit.SECONDS)
 				.convertDurationsTo(TimeUnit.MILLISECONDS)
 				.filter(MetricFilter.ALL)
-				.protocol(new HttpInfluxdbProtocol("127.0.0.1", 8086, "test", "u0", "u0PWD"))
+			.protocol(new HttpInfluxdbProtocol("http", "127.0.0.1", 8086, "test", "u0", "u0PWD"))
 				.build();
 		reporter.start(10, TimeUnit.SECONDS);
 		return reporter;
